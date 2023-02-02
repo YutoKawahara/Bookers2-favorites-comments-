@@ -1,0 +1,78 @@
+<body>
+
+	<div class=container>
+		<div class=row>
+			<div class="col-md-3">
+				<h2>User info</h2>
+				<table class="table table-striped">
+
+					<tr><%= image_tag @book.user.get_profile_image(100,100) %></tr>
+					<tr>
+						<th>name</th>
+						<th>
+							<%= @book.user.name %>
+						</th>
+					</tr>
+					<tr>
+						<th>introduction</th>
+						<th>
+							<%= @book.user.introduction %>
+						</th>
+					</tr>
+				</table>
+				<div class=row>
+					<% if @book.user==current_user %>
+						<%= link_to "", edit_user_path, class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+					<% else %>
+						<%= link_to "", user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+					<% end %>
+
+				</div>
+				<h2>New book</h2>
+				<%= form_for(@book) do |f| %>
+					<label for="title">Title</label><br>
+					<%= f.text_field :title %><br>
+					<label for="opinion">Opinion</label><br>
+					<%= f.text_area :body %><br>
+					<%= f.submit "Create Book" %>
+				<% end %>
+			</div>
+			<div class="col-md-8 offset-md-1">
+				<h2>Book detail</h2>
+				<table class="table table-hover table-inverse">
+					<tbody>
+						<tr>
+							<td>
+								<%= link_to user_path(@book.user_id) do %>
+									<%= image_tag @book.user.get_profile_image(100,100) %><br>
+										<%= @book.user.name %>
+									<% end %>
+							</td>
+							<td>
+								<%= link_to book_path(@book.id) do %>
+									<%= @book.title %>
+								<% end %>
+							</td>
+							<td><%= @book.body %></td>
+							<% if @book.user == current_user %>
+								<td><%= link_to "Edit", edit_book_path, class: "btn-sm btn-success" %></td>
+								<td><%= link_to "Destroy", book_path(@book.id), method: :delete,class: "btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %></td>
+							<% end %>
+							</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-9">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>

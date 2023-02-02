@@ -1,0 +1,47 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<div class="container">
+<div class="row">
+<body>
+<div class="col-md-3">
+<%= render 'books/info', user: @user %>
+<%= render 'books/list', book: @book %>
+</div>
+
+
+
+<div class="col-md-8 offset-md-1">
+<h1>Books</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion </th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+    <tr>
+      <td>
+        <%= image_tag book.user.get_profile_image(100,100) %>
+  　　　</td>
+      <td><%= link_to book_path(book.id) do %>
+        <%= book.title%>
+        <% end %>
+      </td>
+    <td><%= book.body%></td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+<p class="text-center">CopyRight Infratop.inc</p>
+</div>
+</body>
+</div>
+</div>

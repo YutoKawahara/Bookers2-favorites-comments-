@@ -1,0 +1,34 @@
+<body>
+<div class="col-lg-9">
+<h1>User info</h1>
+<%= form_for(@user, url: user_path(@user.id)) do |f| %>
+<% if @user.errors.any? %>
+    <div id="error_explanation" >
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+	    <%= @user.errors.full_messages.each do |message|%>
+	      <li><%= message %></li>
+	    <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <h4>Name</h4>
+    <%= f.text_field :name %>
+
+    <div class="form-group has-icon">
+    <div class="user-edit-image">
+
+    </div>
+    <label class="control-label sr-only" for="inputEmail">ProfileImage</label>
+    <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
+</div>
+
+    <h4>Introduction</h4>
+    <%= f.text_area :introduction %>
+    <%= f.submit 'Update User' %>
+<% end %>
+<p class="text-center">CopyRight Infratop.inc</p>
+</div>
+</body>
