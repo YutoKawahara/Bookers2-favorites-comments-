@@ -1,29 +1,21 @@
-<h1>User info</h1>
+<h2>User info</h2>
+<%= image_tag user.get_profile_image(65,65) %>
 <table class="table">
-  <thead>
+  <tbody>
+    <tr></tr>
     <tr>
-      <th>
-        <%= image_tag user.get_profile_image(100,100) %>
-      </th>
-    </tr>
-    <tr>
-      <th>name</th>
-      <th><%= user.name %></th>
+        <th>name</th>
+        <th><%= user.name %></th>
     </tr>
     <tr>
-      <th>introduction</th>
-      <th><%= user.introduction %></th>
+        <th>introduction</th>
+        <th><%= user.introduction%></th>
     </tr>
-     <tr>
-      <th>
-
-        <%= link_to edit_user_path(user.id) do %>
-        <button type="button" class="btn btn-default btn-block">
-         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-      </button>
-      <% end %>
-
-    </th>
-    </tr>
-  </thead>
+  </tbody>
 </table>
+
+<div class="row">
+  <%= link_to edit_user_path(user),class: "btn btn-outline-secondary btn-block" do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+</div>
