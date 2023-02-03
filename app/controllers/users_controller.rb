@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @users = User.all
     @user = current_user
     @book = Book.new
+    @books = Book.all
   end
 
   def edit
