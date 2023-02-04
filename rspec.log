@@ -122,15 +122,15 @@ Userモデルのテスト
 [32m      投稿の削除リンクが表示される[0m
     サイドバーの確認
 [32m      自分の名前と紹介文が表示される[0m
-[31m      自分のユーザ編集画面へのリンクが存在する (FAILED - 1)[0m
+[32m      自分のユーザ編集画面へのリンクが存在する[0m
 [32m      「New book」と表示される[0m
 [32m      titleフォームが表示される[0m
 [32m      titleフォームに値が入っていない[0m
 [32m      bodyフォームが表示される[0m
-[31m      bodyフォームに値が入っていない (FAILED - 2)[0m
+[31m      bodyフォームに値が入っていない (FAILED - 1)[0m
 [32m      Create Bookボタンが表示される[0m
     投稿成功のテスト
-[31m      自分の新しい投稿が正しく保存される (FAILED - 3)[0m
+[31m      自分の新しい投稿が正しく保存される (FAILED - 2)[0m
     編集リンクのテスト
 [32m      編集画面に遷移する[0m
     削除リンクのテスト
@@ -154,8 +154,8 @@ Userモデルのテスト
     表示内容の確認
 [32m      URLが正しい[0m
 [32m      自分と他人の画像が表示される: fallbackの画像がサイドバーの1つ＋一覧(2人)の2つの計3つ存在する[0m
-[31m      自分と他人の名前がそれぞれ表示される (FAILED - 4)[0m
-[31m      自分と他人のshowリンクがそれぞれ表示される (FAILED - 5)[0m
+[31m      自分と他人の名前がそれぞれ表示される (FAILED - 3)[0m
+[31m      自分と他人のshowリンクがそれぞれ表示される (FAILED - 4)[0m
     サイドバーの確認
 [32m      自分の名前と紹介文が表示される[0m
 [32m      自分のユーザ編集画面へのリンクが存在する[0m
@@ -218,7 +218,7 @@ Userモデルのテスト
     投稿データの更新失敗: titleを空にする
 [32m      投稿が更新されない[0m
 [32m      投稿編集画面を表示しており、フォームの内容が正しい[0m
-[31m      エラーメッセージが表示される (FAILED - 6)[0m
+[31m      エラーメッセージが表示される (FAILED - 5)[0m
   ログインしていない場合のアクセス制限のテスト: アクセスできず、ログイン画面に遷移する
 [32m    ユーザ一覧画面[0m
 [32m    ユーザ詳細画面[0m
@@ -238,7 +238,7 @@ Userモデルのテスト
 [32m        投稿の削除リンクが表示されない[0m
       サイドバーの確認
 [32m        他人の名前と紹介文が表示される[0m
-[31m        他人のユーザ編集画面へのリンクが存在する (FAILED - 7)[0m
+[32m        他人のユーザ編集画面へのリンクが存在する[0m
 [32m        自分の名前と紹介文は表示されない[0m
 [32m        自分のユーザ編集画面へのリンクは存在しない[0m
     他人の投稿編集画面
@@ -246,7 +246,7 @@ Userモデルのテスト
     他人のユーザ詳細画面のテスト
       表示の確認
 [32m        URLが正しい[0m
-[31m        投稿一覧のユーザ画像のリンク先が正しい (FAILED - 8)[0m
+[31m        投稿一覧のユーザ画像のリンク先が正しい (FAILED - 6)[0m
 [32m        投稿一覧に他人の投稿のtitleが表示され、リンクが正しい[0m
 [32m        投稿一覧に他人の投稿のopinionが表示される[0m
 [32m        自分の投稿は表示されない[0m
@@ -261,7 +261,7 @@ Userモデルのテスト
 [32m    ユーザ一覧画面[0m
 [32m    ユーザ詳細画面[0m
 [32m    投稿一覧画面[0m
-[32m    投稿詳細画面[0m
+[31m    投稿詳細画面 (FAILED - 7)[0m
   アイコンのテスト
     トップ画面
 [32m      本のアイコンが表示される[0m
@@ -281,67 +281,55 @@ Userモデルのテスト
 [32m      ユーザ一覧画面でレンチアイコンが表示される[0m
 [32m      ユーザ詳細画面でレンチアイコンが表示される[0m
 [32m      投稿一覧画面でレンチアイコンが表示される[0m
-[31m      投稿詳細画面でレンチアイコンが表示される (FAILED - 9)[0m
+[32m      投稿詳細画面でレンチアイコンが表示される[0m
 
 Failures:
 
-  1) [STEP2] ユーザログイン後のテスト 自分の投稿詳細画面のテスト サイドバーの確認 自分のユーザ編集画面へのリンクが存在する
-     [31mFailure/Error: expect(page).to have_link '', href: edit_user_path(user)[0m
-     [31m  expected to find link "" with href "/users/2/edit" but there were no matches[0m
-     [36m# ./spec/system/02_after_login_spec.rb:143:in `block (4 levels) in <main>'[0m
-
-  2) [STEP2] ユーザログイン後のテスト 自分の投稿詳細画面のテスト サイドバーの確認 bodyフォームに値が入っていない
+  1) [STEP2] ユーザログイン後のテスト 自分の投稿詳細画面のテスト サイドバーの確認 bodyフォームに値が入っていない
      [31mFailure/Error: expect(find_field('book[body]').text).to be_blank[0m
-     [31m  expected `"d2tncsm9swjaoixalcxg".blank?` to be truthy, got false[0m
+     [31m  expected `"k6zgsn7g7osmixjppnqw".blank?` to be truthy, got false[0m
      [36m# ./spec/system/02_after_login_spec.rb:158:in `block (4 levels) in <main>'[0m
 
-  3) [STEP2] ユーザログイン後のテスト 自分の投稿詳細画面のテスト 投稿成功のテスト 自分の新しい投稿が正しく保存される
+  2) [STEP2] ユーザログイン後のテスト 自分の投稿詳細画面のテスト 投稿成功のテスト 自分の新しい投稿が正しく保存される
      [31mFailure/Error: expect { click_button 'Create Book' }.to change(user.books, :count).by(1)[0m
      [31m  expected `Book::ActiveRecord_Associations_CollectionProxy#count` to have changed by 1, but was changed by 0[0m
      [36m# ./spec/system/02_after_login_spec.rb:172:in `block (4 levels) in <main>'[0m
 
-  4) [STEP2] ユーザログイン後のテスト ユーザ一覧画面のテスト 表示内容の確認 自分と他人の名前がそれぞれ表示される
+  3) [STEP2] ユーザログイン後のテスト ユーザ一覧画面のテスト 表示内容の確認 自分と他人の名前がそれぞれ表示される
      [31mFailure/Error: expect(page).to have_content other_user.name[0m
-     [31m  expected to find text "1sjiox6tla" in "Bookers\nHome Users Books Log out\nUser info\nname 9y96ejse1a introduction v3srp50lrn9oryefi8t1\nNew book\nTitle\nOpinion\nBooks\nTitle Opinion mwv2r 1e9qdyfdv5r3290xsuga 3j77r ybne90i7hq8aauu5yat9"[0m
+     [31m  expected to find text "kqoa5cwk2o" in "Bookers\nHome Users Books Log out\nUser info\nname zhp6rxd9mi introduction 7ippazmckwj938tem5s9\nNew book\nTitle\nOpinion\nBooks\nTitle Opinion dpyxc cod75uxzcokmd5f4fccl 0fkpj thct8qy79o4pvqkpwjga"[0m
      [36m# ./spec/system/02_after_login_spec.rb:272:in `block (4 levels) in <main>'[0m
 
-  5) [STEP2] ユーザログイン後のテスト ユーザ一覧画面のテスト 表示内容の確認 自分と他人のshowリンクがそれぞれ表示される
+  4) [STEP2] ユーザログイン後のテスト ユーザ一覧画面のテスト 表示内容の確認 自分と他人のshowリンクがそれぞれ表示される
      [31mFailure/Error: expect(page).to have_link 'Show', href: user_path(user)[0m
      [31m  expected to find link "Show" with href "/users/2" but there were no matches[0m
      [36m# ./spec/system/02_after_login_spec.rb:275:in `block (4 levels) in <main>'[0m
 
-  6) [STEP3] 仕上げのテスト 処理失敗時のテスト 投稿データの更新失敗: titleを空にする エラーメッセージが表示される
+  5) [STEP3] 仕上げのテスト 処理失敗時のテスト 投稿データの更新失敗: titleを空にする エラーメッセージが表示される
      [31mFailure/Error: expect(page).to have_content 'error'[0m
-     [31m  expected to find text "error" in "Bookers\nHome Users Books Log out\nTitle can't be blank\nEditing Book\nTitle\nOpinion\nsp6prv5vnv5tcwnv3r5m\nShow | Back"[0m
+     [31m  expected to find text "error" in "Bookers\nHome Users Books Log out\nTitle can't be blank\nEditing Book\nTitle\nOpinion\nr5k1tjy6cpowivq3c1ok\nShow | Back"[0m
      [36m# ./spec/system/03_finishing_touches_spec.rb:171:in `block (4 levels) in <main>'[0m
 
-  7) [STEP3] 仕上げのテスト 他人の画面のテスト 他人の投稿詳細画面のテスト サイドバーの確認 他人のユーザ編集画面へのリンクが存在する
-     [31mFailure/Error: expect(page).to have_link '', href: edit_user_path(other_user)[0m
-     [31m  expected to find link "" with href "/users/1/edit" but there were no matches[0m
-     [36m# ./spec/system/03_finishing_touches_spec.rb:248:in `block (5 levels) in <main>'[0m
-
-  8) [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい
+  6) [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい
      [31mFailure/Error: expect(page).to have_link '', href: user_path(other_user)[0m
      [31m  expected to find link "" with href "/users/1" but there were no matches[0m
      [36m# ./spec/system/03_finishing_touches_spec.rb:277:in `block (5 levels) in <main>'[0m
 
-  9) [STEP3] 仕上げのテスト アイコンのテスト サイドバー 投稿詳細画面でレンチアイコンが表示される
-     [31mFailure/Error: is_expected.to have_selector '.fas.fa-user-cog'[0m
-     [31m  expected to find css ".fas.fa-user-cog" but there were no matches[0m
-     [36m# ./spec/system/03_finishing_touches_spec.rb:443:in `block (4 levels) in <main>'[0m
+  7) [STEP3] 仕上げのテスト グリッドシステムのテスト: container, row, col-md-〇を正しく使えている 投稿詳細画面
+     [31mFailure/Error: is_expected.to have_selector '.container .row .col-md-8.offset-md-1'[0m
+     [31m  expected to find css ".container .row .col-md-8.offset-md-1" but there were no matches[0m
+     [36m# ./spec/system/03_finishing_touches_spec.rb:345:in `block (3 levels) in <main>'[0m
 
-Finished in 30.66 seconds (files took 1.44 seconds to load)
-[31m199 examples, 9 failures[0m
+Finished in 31.17 seconds (files took 1.92 seconds to load)
+[31m199 examples, 7 failures[0m
 
 Failed examples:
 
-[31mrspec ./spec/system/02_after_login_spec.rb:142[0m [36m# [STEP2] ユーザログイン後のテスト 自分の投稿詳細画面のテスト サイドバーの確認 自分のユーザ編集画面へのリンクが存在する[0m
 [31mrspec ./spec/system/02_after_login_spec.rb:157[0m [36m# [STEP2] ユーザログイン後のテスト 自分の投稿詳細画面のテスト サイドバーの確認 bodyフォームに値が入っていない[0m
 [31mrspec ./spec/system/02_after_login_spec.rb:171[0m [36m# [STEP2] ユーザログイン後のテスト 自分の投稿詳細画面のテスト 投稿成功のテスト 自分の新しい投稿が正しく保存される[0m
 [31mrspec ./spec/system/02_after_login_spec.rb:270[0m [36m# [STEP2] ユーザログイン後のテスト ユーザ一覧画面のテスト 表示内容の確認 自分と他人の名前がそれぞれ表示される[0m
 [31mrspec ./spec/system/02_after_login_spec.rb:274[0m [36m# [STEP2] ユーザログイン後のテスト ユーザ一覧画面のテスト 表示内容の確認 自分と他人のshowリンクがそれぞれ表示される[0m
 [31mrspec ./spec/system/03_finishing_touches_spec.rb:170[0m [36m# [STEP3] 仕上げのテスト 処理失敗時のテスト 投稿データの更新失敗: titleを空にする エラーメッセージが表示される[0m
-[31mrspec ./spec/system/03_finishing_touches_spec.rb:247[0m [36m# [STEP3] 仕上げのテスト 他人の画面のテスト 他人の投稿詳細画面のテスト サイドバーの確認 他人のユーザ編集画面へのリンクが存在する[0m
 [31mrspec ./spec/system/03_finishing_touches_spec.rb:276[0m [36m# [STEP3] 仕上げのテスト 他人の画面のテスト 他人のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい[0m
-[31mrspec ./spec/system/03_finishing_touches_spec.rb:441[0m [36m# [STEP3] 仕上げのテスト アイコンのテスト サイドバー 投稿詳細画面でレンチアイコンが表示される[0m
+[31mrspec ./spec/system/03_finishing_touches_spec.rb:342[0m [36m# [STEP3] 仕上げのテスト グリッドシステムのテスト: container, row, col-md-〇を正しく使えている 投稿詳細画面[0m
 

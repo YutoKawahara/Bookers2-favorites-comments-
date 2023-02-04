@@ -40,21 +40,21 @@
             </tr>
           </thead>
           <tbody>
-            <% @books.each do |book|%>
+            <% @users.each do |user|%>
                 <tr>
                     <td>
-                        <%= link_to user_path(book.user) do %>
-                            <%= image_tag book.user.get_profile_image(40,48) %>
+                        <%= link_to user_path(user) do %>
+                            <%= image_tag user.get_profile_image(40,48) %>
                         <%end%>
                     </td>
                     <td>
-                        <%= link_to book.title ,book_path(book)%>
+                        <%= user.name %>
                     </td>
                     <td>
-                      <%= book.body%>
+                        <%= link_to "show", user_path(user) %>
                     </td>
 
-                      <td></td>
+
                     </td>
                 </tr>
             <% end %>
